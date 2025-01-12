@@ -23,6 +23,8 @@ public class InteractionSystem : MonoBehaviour
     private bool isFlashlightActive = false;
 
     private GameObject Item;
+
+    public GameObject InteractionCircle;
     
     void Start()
     {
@@ -71,6 +73,7 @@ public class InteractionSystem : MonoBehaviour
                 currentTarget = hit.collider.gameObject;
                 InteractionText.SetActive(true);
                 InteractionText.GetComponent<TMPro.TextMeshProUGUI>().text = currentTarget.name;
+                InteractionCircle.SetActive(true);
             }
         }
         else
@@ -78,6 +81,7 @@ public class InteractionSystem : MonoBehaviour
             InteractionText.SetActive(false);
             currentTarget = null;
             InteractionText.GetComponent<TMPro.TextMeshProUGUI>().text = " ";
+            InteractionCircle.SetActive(false);
         }
     }
     
