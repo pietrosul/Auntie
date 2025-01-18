@@ -68,10 +68,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.537
+    m_Value: 0.348
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.364
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
     m_Value: 3
   intensity:
     m_OverrideState: 1
-    m_Value: 0.798
+    m_Value: 0.373
   response:
     m_OverrideState: 1
-    m_Value: 0.847
+    m_Value: 0.402
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -189,14 +189,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   mode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   quality:
     m_OverrideState: 1
     m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.6
+    m_Value: 0.257
   clamp:
     m_OverrideState: 0
     m_Value: 0.05

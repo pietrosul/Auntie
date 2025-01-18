@@ -35,17 +35,28 @@ public class FPSController : MonoBehaviour
     [Header("Head Bobbing")]
     public float bobbingSpeed = 10f;
     public float bobbingAmount = 0.05f;
-    public float midpoint = 2.0f;
+    public float smoothness = 10f;
     
     private float timer = 0.0f;
     private float defaultCameraY;
-    private bool wasWalking;
+    private Vector3 targetCameraPosition;
+    private float initialCameraY = 0.66f;
+    private float afterCrouchCameraY = 1.66f;
+    private bool hascrouchedOnce = false;
     
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         originalHeight = characterController.height;
-        defaultCameraY = playerCamera.transform.localPosition.y;
+        
+        defaultCameraY = initialCameraY;
+        targetCameraPosition = playerCamera.transform.localPosition;
+        
+        playerCamera.transform.localPosition = new Vector3(
+            playerCamera.transform.localPosition.x,
+            initialCameraY,
+            playerCamera.transform.localPosition.z
+        );
         
         if(cursorLock == true) {
             Cursor.lockState = CursorLockMode.Locked;
@@ -55,6 +66,8 @@ public class FPSController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        
     }
  
     void Update()
@@ -116,23 +129,34 @@ public class FPSController : MonoBehaviour
     {
         if (!playerCamera) return;
         
-        Vector3 localPosition = playerCamera.transform.localPosition;
+        Vector3 currentPosition = playerCamera.transform.localPosition;
         bool isMoving = Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f;
         
         if(isMoving && characterController.isGrounded)
         {
             timer += Time.deltaTime * bobbingSpeed;
-            localPosition.y = defaultCameraY + Mathf.Sin(timer) * bobbingAmount;
-            localPosition.x = Mathf.Cos(timer/2) * bobbingAmount/2;
+            
+            targetCameraPosition = new Vector3(
+                Mathf.Cos(timer/2) * bobbingAmount/2,
+                defaultCameraY + Mathf.Sin(timer) * bobbingAmount,
+                currentPosition.z
+            );
         }
         else
         {
             timer = 0f;
-            localPosition.y = Mathf.Lerp(localPosition.y, defaultCameraY, Time.deltaTime * midpoint);
-            localPosition.x = Mathf.Lerp(localPosition.x, 0f, Time.deltaTime * midpoint);
+            targetCameraPosition = new Vector3(
+                0f,
+                defaultCameraY,
+                currentPosition.z
+            );
         }
         
-        playerCamera.transform.localPosition = localPosition;
+        playerCamera.transform.localPosition = Vector3.Lerp(
+            currentPosition,
+            targetCameraPosition,
+            Time.deltaTime * smoothness
+        );
     }
 
     private void ToggleCrouch()
@@ -142,7 +166,16 @@ public class FPSController : MonoBehaviour
         characterController.height = isCrouching ? crouchHeight : originalHeight;
         characterController.center = new Vector3(0, characterController.height / 2f, 0);
         
-        defaultCameraY = isCrouching ? crouchHeight : originalHeight;
+        if (!isCrouching && !hascrouchedOnce)
+        {
+            hascrouchedOnce = true;
+            defaultCameraY = afterCrouchCameraY;
+        }
+        else
+        {
+            defaultCameraY = isCrouching ? crouchHeight : (hascrouchedOnce ? afterCrouchCameraY : initialCameraY);
+        }
+        
         playerCamera.transform.localPosition = new Vector3(
             playerCamera.transform.localPosition.x,
             defaultCameraY,

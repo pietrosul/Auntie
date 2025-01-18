@@ -14,19 +14,19 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.05
+  m_FogDensity: 0.16
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.04
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 82b660520bdecce4daf45d270ec93fe4, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -324,11 +324,11 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.9339623, g: 0.6577087, b: 0.3216002, a: 1}
-  m_Intensity: 42.46
-  m_Range: 9.4
-  m_SpotAngle: 61.903454
-  m_InnerSpotAngle: 36.52101
+  m_Color: {r: 0.9056604, g: 0.6123724, b: 0.252047, a: 1}
+  m_Intensity: 49.99
+  m_Range: 9.73
+  m_SpotAngle: 89.42521
+  m_InnerSpotAngle: 64.17739
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   canMove: 1
   cursorLock: 1
   crouchSpeed: 3
-  crouchHeight: 1
+  crouchHeight: 0.33
   globalVolume: {fileID: 0}
   bobbingSpeed: 15
   bobbingAmount: 0.04
@@ -1598,7 +1598,6 @@ MonoBehaviour:
   ItemContainer: {fileID: 17473700}
   Flashlight: {fileID: 137438195}
   InteractionCircle: {fileID: 446804193}
-  InteractionKeyDisplay: {fileID: 0}
 --- !u!1 &1038595690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,66 +1978,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1619465208}
   m_SourcePrefab: {fileID: 100100000, guid: 2d5b4cb33bab28d42b23ebe9d4ead055, type: 3}
---- !u!1 &1428714993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1428714996}
-  - component: {fileID: 1428714995}
-  - component: {fileID: 1428714994}
-  m_Layer: 0
-  m_Name: VisualScripting SceneVariables
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1428714994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428714993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 765181c9ef4b24d32a4f7cbd2ef370dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1428714995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428714993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!4 &1428714996
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428714993}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1459648343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,4 +2635,3 @@ SceneRoots:
   - {fileID: 968513265}
   - {fileID: 1202143079}
   - {fileID: 1291122811}
-  - {fileID: 1428714996}
