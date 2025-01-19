@@ -1455,11 +1455,11 @@ MonoBehaviour:
   canMove: 1
   cursorLock: 1
   crouchSpeed: 3
-  crouchHeight: 0.33
+  crouchHeight: 1
   globalVolume: {fileID: 0}
   bobbingSpeed: 15
   bobbingAmount: 0.04
-  midpoint: 2
+  smoothness: 10
 --- !u!136 &1017338606
 CapsuleCollider:
   m_ObjectHideFlags: 0
